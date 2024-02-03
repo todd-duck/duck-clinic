@@ -37,7 +37,7 @@ pipeline {
     stage('Docker') {
       steps {
         script {
-          //docker.build("petclinic-app")
+          //docker.build("petclinic-app") confirming not taken
           sh 'docker build -t petclinic-app .'
           }
         }
