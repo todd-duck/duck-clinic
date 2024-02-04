@@ -2,7 +2,7 @@ pipeline {
   environment{ 
         withRegistry = "todddocker/duck-clinic-dhub"
         registryCredential = 'todddocker'
-        DOCKER_IMAGE_NAME = "duckclinic.jfrog.io/1/petclinic-app:latest"
+        DOCKER_IMAGE_NAME = "jfrogpetclinic.jfrog.io/docker-local/test-replay:1.0.0"
     }
   agent any
   tools {
@@ -37,14 +37,14 @@ pipeline {
     stage('Docker') {
       steps {
         script {
-          //docker.build("petclinic-app") confirming not taken
+          //docker.build("petclinic-app") confirming not used
           sh 'docker build -t petclinic-app .'
           }
         }
       }
     stage('Push to Jfrog') {
       steps {
-        sh 'docker tag petclinic-app duckclinic.jfrog.io/1/petclinic-app'
+        sh 'docker tag petclinic-app jfrogpetclinic.jfrog.io/1/petclinic-app'
         jf 'docker push $DOCKER_IMAGE_NAME'
         }
       }
