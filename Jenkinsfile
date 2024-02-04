@@ -2,7 +2,7 @@ pipeline {
   environment{ 
         withRegistry = "todddocker/duck-clinic-dhub"
         registryCredential = 'todddocker'
-        DOCKER_IMAGE_NAME = "jfrogpetclinic.jfrog.io/artifactory/petclinic-docker"
+        DOCKER_IMAGE_NAME = "petclinic-docker/petclinic-app"
     }
   agent any
   tools {
