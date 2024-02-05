@@ -1,12 +1,24 @@
 # Spring PetClinic App flow [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
+## Run Duck-clinic via Jenkins
+* Open your Jenkins web console (could be "https://localhost:8080" depending on how you set it up).
+* Create a New Item on the Dashboard
+* Give the project a title, select "Multi-branch Pipeline"
+  * On the configuration screen, set "Branch Sources" to "Github"
+  * For "Repository HTTPS URL", type in 'https://github.com/todd-duck/duck-clinic.git'
+  * Confirm that the "Build Configuration" section contains "Mode" set to "by Jenkinsfile" (default),
+  * Confirm that the "Script Path" has defaulted to "Jenkinsfile"
+* Save the configuration and return to the Jenkins Dashboard
+* On the Dashboard screen, click on your project name and choose "Scan Repository Now". You can monitor the pipeline steps for activities.
+
+
 ## Run Petclinic locally
 
-Spring Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/). You can build a jar file and run it from the command line or use the Docker instructions below. The Dockerfile is used in the pipeline to create a runnable Docker image.
+Spring Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/). You can build a jar file and run it from the command line or use the Docker instructions further down below. The Dockerfile is used in the Jenkins pipeline to create a runnable Docker image as an artifact. You can confirm the image using "docker image ls"
 
 ```bash
 git clone https://github.com/todd-duck/duck-clinic.git
-cd spring-petclinic
+cd duck-clinic
 ./mvnw package
 java -jar target/*.jar
 ```
@@ -31,7 +43,7 @@ You can then access the Petclinic at <http://localhost:8080/>.
 
 **OPTIONAL:** You can use a '-d' flag to run in a detached mode and not dedicate your terminal session. However, the application takes about 60 seconds to fully start.
 
-You can alsp build a container image (if you have a docker daemon) using the Spring Boot build plugin:
+**OPTIONAL:** You can alsp build a container image (if you have a docker daemon) using the Spring Boot build plugin:
 
 ```bash
 ./mvnw spring-boot:build-image
