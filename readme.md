@@ -1,6 +1,6 @@
 # Spring PetClinic App flow [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
-## Run Duck-clinic via Jenkins
+## Run duck-clinic via Jenkins
 * Open your Jenkins web console (could be "https://localhost:8080" depending on how you set it up).
 * Create a New Item on the Dashboard
 * Give the project a title, select "Multi-branch Pipeline"
