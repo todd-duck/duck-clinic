@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_todd_duck_duck_clinic_1707100528410-push-trigger-input-set
+  identifier: Build_todd_duck_duck_clinic_1707100528410pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_todd_duck_duck_clinic_1707100528410
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
